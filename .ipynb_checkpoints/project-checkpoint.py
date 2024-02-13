@@ -1,3 +1,5 @@
+import heapq
+
 # Define member nodes
 class Member:
     def __init__(self, name, age, location, friends=None):
@@ -19,5 +21,25 @@ class Graph:
         pass
     def find_friends(self):
         pass
-    def shortest_path(self):
-        pass
+    
+    def shortest_path(self, start, end):
+        if (start not in self.members or
+            end not in self.members):
+            return -1
+    
+        # Dijkstra algorithm
+        visited = set()
+        pq = [(0, self.members[start])]
+        while pq:
+            w, member = heapq.heappop(pq)
+            
+            if member.name == end:
+                return w
+            
+            visited.add(member)
+
+            for friend in self.members[member].friends:
+                if friend not in visited:
+                    heapq.heappush(pq, (w + 1, friend))
+            
+            
