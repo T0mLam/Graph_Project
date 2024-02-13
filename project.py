@@ -15,8 +15,13 @@ class Graph:
         
     def __str__():
         pass
-    def add_member(self):
-        pass
+    def add_member(self, name, age, location):
+        #Check if the object with this 
+        if(name not in self.members):
+            self.members[name] = Member(name,age,location)
+        else:
+            print("The member already exists")
+            
     def add_relationship(self):
         pass
     def find_friends(self):
