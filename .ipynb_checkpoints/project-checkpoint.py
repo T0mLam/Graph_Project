@@ -2,12 +2,13 @@
 class Member:
     def __init__(self, name, age, location, friends=None):
         self.name = name
-        self.age = age 
+        self.age = age
         self.location = location
         self.friends = friends if friends else []
         
 class Graph:
     def __init__(self):
+        # Map members' names to the Member object
         self.members = {} 
         
     def __str__():
